@@ -1,0 +1,25 @@
+{
+  "name": "canary",
+  "version": "1.0.0",
+  "description": "Use AWS to query Hamlin's air monitors and send a notification if they report above a threshold.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HamlinSchool/canary.git"
+  },
+  "keywords": [
+    "Lambda",
+    "Idempotent",
+    "purpleair",
+    "tweety"
+  ],
+  "author": "Arthur Cinader",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/HamlinSchool/canary/issues"
+  },
+  "homepage": "https://github.com/HamlinSchool/canary#readme"
+}
