@@ -4,8 +4,7 @@ const addDays = require('date-fns/addDays');
 AWS.config.update({region: 'us-west-1' });
 const dynamodb = new AWS.DynamoDB({apiVersion: '2012-08-10'});
 
-// returns false if this is a dupe
-const deDupe = function deDupe(event) {
+const eventIsDupe = function eventIsDupe(event) {
   const params = {
     TableName: 'CanaryLog',
     Item: {
@@ -28,14 +27,19 @@ const deDupe = function deDupe(event) {
 };
 
 exports.handler = async (event) => {
-  await deDupe(event);
-  const response = {
+  if (!process.env.TEST && await eventIsDupe(event)) {
+    const response = {
       statusCode: 200,
-      body: JSON.stringify('Hello from Lambda!'),
+      body: JSON.stringify('event already processed'),
+    };
+
+    return response
   };
+
+  const response = {
+    statusCode: 201,
+    body: JSON.stringify('event processed'),
+  };
+
   return response;
 };
-
-// deDupe({ time: '2019-11-30T18:46:58Z', id: '1' })
-//   .then(console.log)
-//   .catch(console.error);
