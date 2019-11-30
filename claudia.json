@@ -1,0 +1,7 @@
+{
+  "lambda": {
+    "role": "HamlinCanary-executor",
+    "name": "HamlinCanary",
+    "region": "us-west-1"
+  }
+}
