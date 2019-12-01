@@ -25,7 +25,8 @@
   "homepage": "https://github.com/HamlinSchool/canary#readme",
   "dependencies": {
     "aws-sdk": "^2.580.0",
-    "date-fns": "^2.8.1"
+    "date-fns": "^2.8.1",
+    "got": "^9.6.0"
   },
   "devDependencies": {
     "claudia": "^5.11.0"
