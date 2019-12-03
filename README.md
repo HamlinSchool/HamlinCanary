@@ -39,6 +39,7 @@ npm run deploy
 
 ### To Do
 * Store the data and produce graphs
+* add unit tests so we can auto-update dependencies
 
 
 ![](./img/tweety.jpg)
