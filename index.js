@@ -15,11 +15,22 @@ exports.handler = async (event) => {
   // for two servers, this is easier.  The env var
   // is configured in the aws dashboard for the lambda
   const sensors = process.env.CANARY_SERVER_LIST.split(',');
-  const results = await Promise.all(sensors.map(server => got(server)));
+  const observations = await Promise.all(sensors.map(server => got(server).json()));
+  const sensorReadings = observations.reduce((accumulator, observation) => {
+    observation.results.forEach((sensor) => {
+      const label = sensor.Label;
+      const reading = JSON.parse(sensor.Stats).v1;
+      accumulator.push({ label, reading });
+    });
+    return accumulator;
+  }, []);
+
+  const aboveThreshold = sensorReadings.filter(sensor => sensor.reading > 13);
+
   const response = {
     statusCode: 201,
     body: JSON.stringify('event processed'),
   };
 
-  return response;
+    return response;
 };

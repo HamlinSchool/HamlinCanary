@@ -37,4 +37,8 @@ npm install
 npm run deploy
 ```
 
+### To Do
+* Store the data and produce graphs
+
+
 ![](./img/tweety.jpg)
