@@ -18,11 +18,14 @@ exports.handler = async (event) => {
   // This is the first time we've seen this event, so process it
   const sensors = process.env.CANARY_SERVER_LIST.split(','); // env var CANARY_SERVER_LIST configured with dashboard for lambda
   const overThresholdCount = await processReadings(sensors, 'v1', 13);
-
+  const message = makeMessage(overThresholdCount);
   const response = {
     statusCode: 201,
-    body: `event processed. ${makeMessage(overThresholdCount)}`,
+    body: `event processed. ${message}`,
   };
+
+  // always log the message so we can see in Cloudfront
+  console.log(message);
 
   return response;
 };
