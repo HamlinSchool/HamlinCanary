@@ -24,7 +24,6 @@ const dynamodb = new AWS.DynamoDB({apiVersion: '2012-08-10'});
  * @returns promise<boolean> true if this event has already been processed
  */
 const eventIsDupe = function eventIsDupe(event) {
-
   const params = {
     TableName: 'CanaryLog',
     Item: {
@@ -36,10 +35,10 @@ const eventIsDupe = function eventIsDupe(event) {
   };
 
   return dynamodb.putItem(params).promise()
-    .then(() => true)
+    .then(() => false) // it's not a dupe
     .catch((e) => {
       if (e.code === 'ConditionalCheckFailedException') {
-          return false;
+          return true; // it's a dupe
       }
       return Promise.reject(e);
     });
