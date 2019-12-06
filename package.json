@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/HamlinSchool/canary#readme",
   "dependencies": {
-    "aws-sdk": "^2.582.0",
+    "aws-sdk": "^2.585.0",
     "capitalize": "^2.0.1",
     "date-fns": "^2.8.1",
     "got": "^10.0.1",
