@@ -51,7 +51,7 @@ const sendAlert = async function sendAlert(aboveThreshold) {
   const params = {
     Subject: `Hamlin Canary: ${makeMessage(aboveThreshold.length)}`,
     Message: makeMessageBody(aboveThreshold),
-    TopicArn: process.env.SNS_TOPIC_ARN, // environment variable set in lambda console
+    TopicArn: process.env.CANARY_SNS_TOPIC_ARN, // environment variable set in lambda console
   };
 
   publishResult = await new AWS.SNS({apiVersion: '2010-03-31'}).publish(params).promise();
@@ -65,8 +65,8 @@ const sendAlert = async function sendAlert(aboveThreshold) {
  * sensors, if any are above the supplied threshold
  *
  * @param {string[]} sensors array of sensors to query
- * @param {string} key element in the sensor's response to evaluate
- * @param {string} threshold above which a sensor is in alarm state
+ * @param {string} [key=v1] element in the sensor's response to evaluate
+ * @param {string} [threshold=100] above which a sensor is in alarm state
  * @returns {number} count of sensors above threshold
  */
 const processReadings  = async function processReadings(sensors, key = 'v1',  threshold = 100) {
