@@ -29,7 +29,7 @@ The Lambda function runs the code in [this GitHub repository](https://github.com
 Three pieces of information are [maintained in the configuration](https://us-west-1.console.aws.amazon.com/lambda/home?region=us-west-1#/functions/HamlinCanary?tab=configuration) of the Lambda function rather than being 'hard coded' into the javascript in this repository:
 - [CANARY_READING_THRESHOLD](https://github.com/HamlinSchool/HamlinCanary/blob/00cebaa08e0769ebaadec0f604f82d14e0f9e517/src/sensor-service.js#L54) - the particle value above which an alert should be sent
 - [CANARY_SERVER_LIST](https://github.com/HamlinSchool/HamlinCanary/blob/00cebaa08e0769ebaadec0f604f82d14e0f9e517/index.js#L19) - a comma separated list of sensor URLs to check
-- [CANARY_SNS_TOPIC_ARN](https://github.com/HamlinSchool/HamlinCanary/blob/00cebaa08e0769ebaadec0f604f82d14e0f9e517/index.js#L20) - the [resource where notifications](#notifications-AWS-SNS) are posted
+- [CANARY_SNS_TOPIC_ARN](https://github.com/HamlinSchool/HamlinCanary/blob/00cebaa08e0769ebaadec0f604f82d14e0f9e517/index.js#L20) - the [resource where notifications](#notification-AWS-SNS) are posted
 
 ### Schedule: AWS CloudWatch
 
