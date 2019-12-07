@@ -14,7 +14,7 @@ The sensors continuously monitor local air quality and expose a 'webpage' that c
 
 ## Resources
 
-To enable the Hamlin Canary a few different resources are stitched together.  The [logic](#logic-aws-lambda) that this code implements needs to run somewhere.  The running of the logic needs to be [scheduled](#schedule-aws-cloudwatch). To ensure that we only run the code once per scheduled interval, [state](state-aws-dynamodb) must to be maintained.  When the code runs, if the particulate level is above a safe threshold a [notification](#notification-aws-sns) needs to be sent to the appropriate individuals.
+To enable the Hamlin Canary a few different resources are stitched together.  The [logic](#logic-aws-lambda) that this code implements needs to run somewhere.  The running of the logic needs to be [scheduled](#schedule-aws-cloudwatch). To ensure that we only run the code once per scheduled interval, [state](#state-aws-dynamodb) must to be maintained.  When the code runs, if the particulate level is above a safe threshold a [notification](#notification-aws-sns) needs to be sent to the appropriate individuals.
 
 Hamlin Canary is built using Amazon Web Service ([AWS](https://aws.amazon.com/)) resources.  Each resource used is described below.
 
