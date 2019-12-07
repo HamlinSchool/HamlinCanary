@@ -42,7 +42,7 @@ To ensure that our data collection is [idempotent](https://developer.mozilla.org
 
 To view the data in the CanaryLog table, use the [DynamoDb](https://us-west-1.console.aws.amazon.com/dynamodb/home?region=us-west-1#tables:selected=CanaryLog;tab=overview) which requires an AWS account with appropriate permissions.
 
-### Notifications: AWS SNS
+### Notification: AWS SNS
 When a reading is made that is above a safe threshold a notification needs to be sent to interested individuals.  Individuals can subscribe (and unsubscribe) to these notifications.  The AWS Simple Notification Service ([AWS SNS](https://aws.amazon.com/sns/?whats-new-cards.sort-by=item.additionalFields.postDateTime&whats-new-cards.sort-order=desc)) is used to reliably deliver notifications.  The current list of subscribers can be viewed in the [SNS Console](https://us-west-1.console.aws.amazon.com/sns/v3/home?region=us-west-1#/dashboard) which requires an AWS account with appropriate permissions.
 
 
