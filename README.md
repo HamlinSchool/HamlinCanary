@@ -77,10 +77,11 @@ npm run deploy
 ```
 
 ## Some ideas for further exploration...
-* Store the data to produce graphs and calculate, mean, median, standard deviation
-* Enable deliver of SMS as well as email
-* add unit tests which would allow for auto-update of dependencies
-
+* Move the key checked from code to and env var so it can easily be change (this is an easy one)
+* Store the data to produce graphs and calculate: mean, median, standard deviation, etc.
+* Enable delivery of notifications via SMS
+* Add unit tests which would allow for auto-update of dependencies
+* Understand what each of the dependencies does, why it is used, and understand its documentation
 
 ![](./img/tweety.jpg)
 
