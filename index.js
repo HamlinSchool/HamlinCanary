@@ -21,7 +21,7 @@ exports.handler = async (event) => {
   const message = makeMessage(overThresholdCount);
   const response = {
     statusCode: 201,
-    body: `event processed. ${message}`,
+    body: `Event processed. ${message}.`,
   };
 
   // always log the message so we can see in Cloudfront
